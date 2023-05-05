@@ -1,0 +1,13 @@
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,
+    "bindings": [
+        {
+            "type": "blobTrigger",
+            "name": "myblob",
+            "direction": "in",
+            "path": "BLOB_CONTAINER_NAME/{name}.json",
+            "connection": "WAREHOUSE_STORAGE"
+          }
+    ]
+}
