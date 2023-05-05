@@ -1,6 +1,8 @@
 # Azure Blob Storage Processing with Python Azure Functions with HTTP Triggers
 
-The developers at Mystique Unicorn are looking to implement a serverless solution that can process files ondemand. They have heard of Azure capabitlities for event processing  can you help them?
+The developers at Mystique Unicorn [process files as soon as they arrive][5]. They want to switch to an event-driven architecture. They were looking for a custom trigger, whether it be payload-based or time-based, to process files efficiently.
+
+They heard about Azure's capabilities for event processing. Can you help them implement this event processing at Mystique Unicorn? 
 
 ![Miztiik Automation - Azure Blob Storage Processing with Python Azure Functions with HTTP Triggers](images/miztiik_architecture_azure_blob_storage_processing_in_functions_http_trigger_001.png)
 
@@ -192,13 +194,14 @@ Thank you for your interest in contributing to our project. Whether it is a bug 
 1. [Azure Blob Storage Input Binding][2]
 1. [Azure Blob Storage Ouput Binding][3]
 1. [Azure Functions Best Practices][4]
+1. [Miztiik Blog - Blob Storage Event Processing with Python Azure Functions][5]
 
 
 [1]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=python-v1
 [2]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-input?tabs=python-v1
 [3]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-output?tabs=python-v1
 [4]: https://learn.microsoft.com/en-us/azure/azure-functions/functions-best-practices
-
+[5]: https://github.com/miztiik/azure-blob-trigger-python-function
 
 ### 🏷️ Metadata
 
