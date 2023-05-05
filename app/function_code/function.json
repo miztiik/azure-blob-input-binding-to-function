@@ -4,7 +4,7 @@
     "bindings": [
         {
             "type": "blobTrigger",
-            "name": "myblob",
+            "name": "inputBlob",
             "direction": "in",
             "path": "BLOB_CONTAINER_NAME/{name}.json",
             "connection": "WAREHOUSE_STORAGE"

@@ -103,15 +103,17 @@ By leveraging the power of Bicep, all necessary resources can be easily provisio
       }
       ```
 
-# Create JSON file
-echo -n "{\"name\": $RANDOM, \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > "${BLOB_NAME}"
+      ```bash
+      # Create JSON file
+      echo -n "{\"name\": $RANDOM, \"timestamp\": \"$(date -u +"%Y-%m-%dT%H:%M:%SZ")\"}" > "${BLOB_NAME}"
 
-# Upload file to Azure Blob container
-az storage blob upload --account-name "${STORAGE_ACCOUNT}" \
---container-name "${CONTAINER}" \
---name "${BLOB_NAME}" \
---file "${BLOB_NAME}" \
---auth-mode login
+      # Upload file to Azure Blob container
+      az storage blob upload --account-name "${STORAGE_ACCOUNT}" \
+      --container-name "${CONTAINER}" \
+      --name "${BLOB_NAME}" \
+      --file "${BLOB_NAME}" \
+      --auth-mode login
+      ```
 
       ```bash
       JSON_DATA='{"blob_name":"29050_2023-05-05_event"}'
@@ -128,7 +130,7 @@ az storage blob upload --account-name "${STORAGE_ACCOUNT}" \
 
 1. ## 🔬 Observations
 
-      This solution has also bootstrapped the function with applicaiton insights. This gives us a lot of insights on how the input/output bindings works.
+      This solution has also bootstrapped the function with applicaiton insights. This gives us a lot of insights on how the input/output bindings works. For example, when we look at the application map, we can see the calls made to the blob storage and also the percentage of success/failure. If we drill down the errors we can see the error code and the error message.
 
       ![Miztiik Automation - Azure Blob Storage Processing with Python Azure Functions with HTTP Triggers](images/miztiik_architecture_azure_blob_storage_processing_in_functions_http_trigger_005.png)
 
@@ -136,7 +138,7 @@ az storage blob upload --account-name "${STORAGE_ACCOUNT}" \
    
       ![Miztiik Automation - Azure Blob Storage Processing with Python Azure Functions with HTTP Triggers](images/miztiik_architecture_azure_blob_storage_processing_in_functions_http_trigger_007.png)
 
-      We can observe that the backend make a `HEAD` call to the blob to check if the blob exists. It results in error `404` as the blob does not exist, it will create a new blob with the processed data.
+      We can observe that the output binding triggers a `HEAD` call to the storage account to check if the blob exists. It results in error `404` as the blob does not exist, it will create a new blob with the processed data.
 
 
       ```bash
@@ -146,6 +148,8 @@ az storage blob upload --account-name "${STORAGE_ACCOUNT}" \
       ```
 
       ![Miztiik Automation - Azure Blob Storage Processing with Python Azure Functions with HTTP Triggers](images/miztiik_architecture_azure_blob_storage_processing_in_functions_http_trigger_004.png)
+
+      _Ofcourse the screenshots and the data will be different, as they were taken during different file upload process_
 
      
 1. ## 📒 Conclusion
